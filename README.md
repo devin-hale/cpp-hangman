@@ -35,3 +35,18 @@ The general purpose of this program is for me to apply what I've learned so far 
 - Getters for each member.
 - Add guess to guesses vector.
 - Increment number of guesses.
+
+### UserInput Class
+- Holds current single character guess, or full word guess, as a member.
+- Prompts user input.
+- Receives guesses.
+- Validates guess, and converts it to lower case.
+- Passes guess to PlayerState instance.
+- Clears state on pass or failed validation.  Returns bool.
+
+### Window Class
+- Holds pointer to window
+- Type of window (Game display, input display, warning/error window)
+- Constructor for window overloaded depending on enum
+- Write text to Window
+- Prompt window
