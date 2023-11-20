@@ -1,5 +1,5 @@
 flags=-std=c++23 -g -Wall -Werror -Wextra -pedantic -Wconversion
-objects=main.o generateWord.o wordState.o
+objects=main.o generateWord.o wordState.o playerState.o
 
 all: $(objects)
 	g++ $(flags) $(objects) -o main -lncurses
@@ -15,3 +15,6 @@ generateWord.o:
 
 wordState.o:
 	g++ $(flags) -c ./wordState/wordState.cpp
+
+playerState.o:
+	g++ $(flags) -c ./playerState/playerState.cpp
