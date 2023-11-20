@@ -1,12 +1,19 @@
 #include <iostream>
 #include <ncurses.h>
+#include "generateWord/generateWord.h"
+
+void initialize() {
+	initscr();
+	raw();
+	keypad(stdscr, TRUE);
+	noecho();
+};
 
 int main() {
-	initscr();
-	printw("Hello World!");
-	refresh();
-	getch();
-	endwin();
+
+	std::string_view word{GenerateWord::generateWord()};
+
+	std::cout << word << '\n';
 
 	return 0;
 };
