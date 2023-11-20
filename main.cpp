@@ -1,19 +1,21 @@
+#include "wordState/wordState.h"
 #include <iostream>
 #include <ncurses.h>
-#include "generateWord/generateWord.h"
 
 void initialize() {
-	initscr();
-	raw();
-	keypad(stdscr, TRUE);
-	noecho();
+    initscr();
+    raw();
+    keypad(stdscr, TRUE);
+    noecho();
 };
 
 int main() {
+	WordState word{};
 
-	std::string_view word{GenerateWord::generateWord()};
+	std::cout << word.getDisplay() << '\n';
 
-	std::cout << word << '\n';
+	word.updateDisplay({'a', 'b', 'c', 'd'});
 
-	return 0;
+	std::cout << word.getDisplay() << '\n';
+    return 0;
 };
