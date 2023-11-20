@@ -2,12 +2,6 @@
 #include <iostream>
 #include <ncurses.h>
 
-void initialize() {
-    initscr();
-    raw();
-    keypad(stdscr, TRUE);
-    noecho();
-};
 
 int main() {
 	WordState word{};

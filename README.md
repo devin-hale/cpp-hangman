@@ -28,3 +28,10 @@ The general purpose of this program is for me to apply what I've learned so far 
 - Private function that takes char, determines if it exists in hiddenWord non case sensitive
 - Update function that takes a vector of guessed chars, and updates display vector based on that.
 - Public function that compares display and hidden word, returns bool.
+- Public function that takes entire string and compares to hidden word.
+
+### PlayerState Class
+- Holds current guesses vector and number of guesses int.
+- Getters for each member.
+- Add guess to guesses vector.
+- Increment number of guesses.

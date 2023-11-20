@@ -36,3 +36,7 @@ WordState& WordState::updateDisplay(const std::vector<char>& guesses) {
 bool WordState::compare() {
 	return m_hiddenWord == m_displayWord;
 };
+
+bool WordState::compareWhole(std::string_view string) {
+	return m_hiddenWord == string;
+};

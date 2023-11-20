@@ -19,6 +19,8 @@ class WordState {
 		WordState& updateDisplay(const std::vector<char>&);
 
 		bool compare();
+
+		bool compareWhole(std::string_view);
 };
 
 #endif
