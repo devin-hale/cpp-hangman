@@ -3,6 +3,7 @@
 #include <curses.h>
 #include <iostream>
 #include <ncurses.h>
+#include "window/window.h"
 
 void initialize() {
     initscr();
@@ -12,12 +13,13 @@ void initialize() {
 
 int main() {
 	initialize();
-    WINDOW* myWin{newwin(10, 100, 0, 0)};
-	refresh();
+	Window w{Window::Type::display};
+	Window ui{Window::Type::user};
 	
-    UserInput usin{myWin};
-
+    UserInput usin{ui.getWindow()};
     usin.promptInputType();
+
+
 
 	getch();
 	endwin();

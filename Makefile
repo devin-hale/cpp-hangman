@@ -1,5 +1,5 @@
 flags=-std=c++23 -g -Wall -Werror -Wextra -pedantic -Wconversion
-objects=main.o generateWord.o wordState.o playerState.o userInput.o
+objects=main.o generateWord.o wordState.o playerState.o userInput.o window.o
 
 all: $(objects)
 	g++ $(flags) $(objects) -o main -lncurses
@@ -21,3 +21,6 @@ playerState.o:
 
 userInput.o:
 	g++ $(flags) -c ./userInput/userInput.cpp
+
+window.o:
+	g++ $(flags) -c ./window/window.cpp
