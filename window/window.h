@@ -11,7 +11,7 @@ class Window {
     enum Type { global, display, user, error, win, lose };
 
   private:
-    WINDOW* m_window{};
+    WINDOW* m_window{nullptr};
     Type m_type{};
 
 

@@ -14,13 +14,19 @@ class WordState {
 	public:
 		WordState();
 
+		std::string_view getHidden()const{return m_hiddenWord;};
+		
 		std::string_view getDisplay(){return m_displayWord;};
 		
-		WordState& updateDisplay(const std::vector<char>&);
+		void updateDisplay(const std::vector<char>&);
 
-		bool compare();
+		bool compare() const;
 
-		bool compareWhole(std::string_view);
+		bool compare(std::string_view) const;
+
+		bool contains(char) const;
+
+		void resetWordState();
 };
 
 #endif

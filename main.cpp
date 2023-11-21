@@ -1,27 +1,26 @@
+#include "gameState/gameState.h"
 #include "userInput/userInput.h"
+#include "playerState/playerState.h"
 #include "wordState/wordState.h"
-#include <curses.h>
 #include <iostream>
-#include <ncurses.h>
-#include "window/window.h"
-
-void initialize() {
-    initscr();
-    cbreak();
-	noecho();
-};
 
 int main() {
-	initialize();
-	Window w{Window::Type::display};
-	Window ui{Window::Type::user};
-	
-    UserInput usin{ui.getWindow()};
-    usin.promptInputType();
+    GameState gs{};
+    bool gameActive{true};
 
+    while (gameActive) {
+        bool winState{gs.takeTurn()};
 
+        if (winState || gs.getPlayerState().getGuessLimit() ==
+                            gs.getPlayerState().getGuessNo()) {
+            bool playAgain{gs.playAgain(winState)};
+			if (!playAgain) {
+				gameActive = false;
+			} else {
+				gs.resetGameState();
+			}
+        }
+    };
 
-	getch();
-	endwin();
     return 0;
 };

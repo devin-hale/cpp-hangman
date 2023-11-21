@@ -1,32 +1,33 @@
 #ifndef USERINPUT_H
 #define USERINPUT_H
 
+#include "../playerState/playerState.h"
 #include <curses.h>
 #include <string>
-#include "../playerState/playerState.h"
 
 class UserInput {
+  public:
+    enum InputType { ch, string, empty };
+
   private:
     char m_char{};
     std::string m_string{""};
-	WINDOW* m_window{};
+	InputType m_inputType{InputType::empty};
 
   public:
-	UserInput() = delete;
+	char getChar(){return m_char;};
 
-	UserInput(WINDOW*);
+    InputType promptInputType();
 
-	void promptInputType();
+    char getCharInput();
 
-	char getCharInput();
+    std::string getStringInput();
 
-	std::string_view getStringInput();
+    bool validateCharInput(char);
 
-	bool validateCharInput();
+    bool validateStringInput(std::string);
 
-	bool validateStringInput();
-
-	void passInput(PlayerState&);
+    void passInput(PlayerState&);
 };
 
 #endif
